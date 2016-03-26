@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="tractor_articulatedAxis">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+    <name>
+        <en>CaseIH Quadtrac 620</en>
+        <de>CaseIH Quadtrac 620</de>
+    </name>
+    <filename>data/vehicles/steerable/caseIH/caseIHQuadtrac620.i3d</filename>
+
+    <size width="4.5" length="10" />
+
+    <wheels autoRotateBackSpeed="2">
+        <wheel rotSpeed="1"  restLoad="6.6" repr="0>0" driveNode="0>0|0" showSteeringAngle="false" radius="0.76" initialCompression="50" suspTravel="0.23" spring="53" damper="120" frictionScale="1.5" mass="0.5" hasTyreTracks="true" tireType="crawler" />
+        <wheel rotSpeed="1"  restLoad="6.6" repr="0>2" driveNode="0>2|0" showSteeringAngle="false" radius="0.76" initialCompression="50" suspTravel="0.23" spring="53" damper="120" frictionScale="1.5" mass="0.5" hasTyreTracks="true" tireType="crawler" />
+        <wheel rotSpeed="1"  restLoad="5.8" repr="1>0" driveNode="1>0|0" showSteeringAngle="false" radius="0.76" initialCompression="50" suspTravel="0.23" spring="58" damper="120" frictionScale="1.5" mass="0.5" hasTyreTracks="true" tireType="crawler" />
+        <wheel rotSpeed="1"  restLoad="5.8" repr="1>2" driveNode="1>2|0" showSteeringAngle="false" radius="0.76" initialCompression="50" suspTravel="0.23" spring="58" damper="120" frictionScale="1.5" mass="0.5" hasTyreTracks="true" tireType="crawler" />
+    </wheels>
+
+    <differentials>
+        <differential torqueRatio="0.5" maxSpeedRatio="1.4" wheelIndex1="0" wheelIndex2="1" /> <!-- front left-right -->
+        <differential torqueRatio="0.5" maxSpeedRatio="1.4" wheelIndex1="2" wheelIndex2="3" /> <!-- back left-right -->
+        <differential torqueRatio="0.5" maxSpeedRatio="1.1" differentialIndex1="0" differentialIndex2="1" /><!-- front-back -->
+    </differentials>
+
+    <ackermannSteering rotSpeed="65" rotMax="2" rotCenter="0 -0.37" />
+
+    <articulatedAxis componentJointIndex="0" anchorActor="0" rotSpeed="45" rotMax="33" rotMin="-33">
+        <rotatingPart index="0>26" invertSteeringAngle="true" negRot="0 -55 0" posRot="0 0 0" negRotFactor="1.6" posRotFactor="1" />
+    </articulatedAxis>
+
+    <motor torqueScale="3.065" minRpm="1000" maxRpm="2200" maxBackwardSpeed="15" brakeForce="16" lowBrakeForceScale="0.22" lowBrakeForceSpeedLimit="1" minForwardGearRatio="19.5" maxForwardGearRatio="130" minBackwardGearRatio="50" maxBackwardGearRatio="130">
+        <torque normRpm="0.45" torque="0.9"/>
+        <torque normRpm="0.5" torque="0.97"/>
+        <torque normRpm="0.59" torque="1"/>
+        <torque normRpm="0.72" torque="1"/>
+        <torque normRpm="0.86" torque="0.88"/>
+        <torque normRpm="1" torque="0.72"/>
+    </motor>
+
+    <fuelCapacity>1722</fuelCapacity>
+    <fuelUsage>344</fuelUsage>
+
+    <cameras count="2">
+        <camera1 index="0>4|0|0" rotatable="true" rotateNode="0>4|0" limit="true" rotYSteeringRotSpeed="-22.5" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="4" transMax="35" >
+            <raycastNode index="0>13|0"/>
+            <raycastNode index="0>13|1"/>
+            <raycastNode index="0>13|2"/>
+            <raycastNode index="1>4"/>
+        </camera1>
+        <camera2 index="0>4|1" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" />
+    </cameras>
+
+    <crawlers>
+        <crawler index="0" speedRefWheel="1" scrollSpeed="0.162" scrollLength="6.16" shaderParameterName="offsetUV" shaderParameterComponent="1" length="1" filename="$data/vehicles/wheels/lizard/crawler.i3d" linkIndex="0>0|1" crawlerIndex="1|0">
+            <rotatingPart index="1" radius="0.447" />
+            <rotatingPart index="2" radius="0.338" />
+            <rotatingPart index="3" radius="0.338" />
+            <rotatingPart index="4" radius="0.17" />
+            <rotatingPart index="5" radius="0.17" />
+            <rotatingPart index="6" radius="0.17" />
+        </crawler>
+        <crawler index="0" speedRefWheel="2" scrollSpeed="0.162" scrollLength="6.16" shaderParameterName="offsetUV" shaderParameterComponent="1" length="1" filename="$data/vehicles/wheels/lizard/crawler.i3d" linkIndex="0>2|1" crawlerIndex="1|1">
+            <rotatingPart index="1" radius="0.447" />
+            <rotatingPart index="2" radius="0.338" />
+            <rotatingPart index="3" radius="0.338" />
+            <rotatingPart index="4" radius="0.17" />
+            <rotatingPart index="5" radius="0.17" />
+            <rotatingPart index="6" radius="0.17" />
+        </crawler>
+
+        <crawler index="0" speedRefWheel="3" scrollSpeed="0.162" scrollLength="6.16" shaderParameterName="offsetUV" shaderParameterComponent="1" length="1" filename="$data/vehicles/wheels/lizard/crawler.i3d" linkIndex="1>0|1" crawlerIndex="1|1">
+            <rotatingPart index="1" radius="0.447" />
+            <rotatingPart index="2" radius="0.338" />
+            <rotatingPart index="3" radius="0.338" />
+            <rotatingPart index="4" radius="0.17" />
+            <rotatingPart index="5" radius="0.17" />
+            <rotatingPart index="6" radius="0.17" />
+        </crawler>
+        <crawler index="0" speedRefWheel="4" scrollSpeed="0.162" scrollLength="6.16" shaderParameterName="offsetUV" shaderParameterComponent="1" length="1" filename="$data/vehicles/wheels/lizard/crawler.i3d" linkIndex="1>2|1" crawlerIndex="1|0">
+            <rotatingPart index="1" radius="0.447" />
+            <rotatingPart index="2" radius="0.338" />
+            <rotatingPart index="3" radius="0.338" />
+            <rotatingPart index="4" radius="0.17" />
+            <rotatingPart index="5" radius="0.17" />
+            <rotatingPart index="6" radius="0.17" />
+        </crawler>
+    </crawlers>
+
+    <lights count="2">
+        <light realLight="0>6" decoration="0>11" lightType="0"/>
+        <light decoration="1>17" lightType="0"/>
+        <light realLight="1>6" decoration="1>7" lightType="1"/>
+        <light decoration="0>24" lightType="1"/>
+    </lights>
+
+    <brakeLights>
+        <brakeLight index="1>16" />
+    </brakeLights>
+
+    <beaconLights>
+        <beaconLight index="0>12|0" speed="0.015" filename="$data/vehicles/shared/beaconLight02.i3d"/>
+        <beaconLight index="0>12|1" speed="0.015" filename="$data/vehicles/shared/beaconLight02.i3d"/>
+    </beaconLights>
+
+    <turnSignals>
+        <turnSignalLeft index="0>25|0" />
+        <turnSignalRight index="0>25|1" />
+        <turnSignalLeft index="1>18|0" />
+        <turnSignalRight index="1>18|1" />
+    </turnSignals>
+
+    <mirrors>
+        <mirror index="0>19|0" />
+    </mirrors>
+
+    <indoorHud>
+        <speed numbers="0>19|1|0" precision="1" />
+        <rpm numbers="0>19|1|1" precision="0" />
+    </indoorHud>
+
+    <steering index="0>7|0" indoorRotation="540" outdoorRotation="60" />
+    <enterReferenceNode index="0>" />
+    <exitPoint index="0>5" />
+
+    <motorStartDuration>2500</motorStartDuration>
+    <attachSound file="$data/vehicles/shared/attach.wav" pitchOffset="1" />
+    <motorStartSound file="$data/vehicles/steerable/caseIH/caseIHQuadtrac620_start.wav" pitchOffset="0.65" volume="0.75" />
+    <motorSound file="$data/vehicles/steerable/caseIH/caseIHQuadtrac620_idle.wav" pitchOffset="0.65" pitchScale="0.0087" pitchMax="1.5" volume="0.75" radius="35" innerRadius="15" />
+    <motorSoundRun file="$data/vehicles/steerable/caseIH/caseIHQuadtrac620_run.wav" pitchOffset="0.55" pitchScale="0.0125" pitchMax="1.4" volume="0.925" />
+	<motorSoundRun2 file="$data/vehicles/shared/transmissionCVT.wav" pitchOffset="0.45" volume="0.25" pitchMax="1.45" volumeMax="0.65"/>
+    <motorStopSound file="$data/vehicles/steerable/caseIH/caseIHQuadtrac620_stop.wav" pitchOffset="1" />
+    <compressedAirSound file="$data/vehicles/shared/brakeBig.wav" pitchOffset="1"/>
+    <compressionSound file="$data/vehicles/shared/brakeBig.wav" pitchOffset="1" volume="1"/>
+    <reverseDriveSound file="$data/vehicles/shared/reverseDrivingBeep.wav" volume="0.5" />
+    <cylinderedHydraulicSound file="$data/vehicles/shared/hydraulicUp.wav" pitchOffset="0.65" volume="0.85" />
+    <hydraulicSound file="$data/vehicles/shared/hydraulicUp.wav" pitchOffset="0.55" volume="0.8" />
+    <honkSound file="$data/vehicles/shared/hornBig.wav" volume="1" radius="70" innerRadius="10" />
+
+    <exhaustEffects>
+        <exhaustEffect index="0>9" filename="$data/vehicles/particleAnimations/shared/exhaust.i3d" minRpmColor="0.9 0.9 0.9 0.05" maxRpmColor="0.9 0.9 0.9 0.2" minRpmScale="0.05" maxRpmScale="0.3" forwardXRotations="-50 -50 -50" forwardZRotations="-300 -300 100" steerXRotations="0 0 0" steerZRotations="-200 0 150"  />
+    </exhaustEffects>
+
+    <characterNode index="0>8|0" cameraMinDistance="1.5" filename="$dataS2/character/player/player.i3d" characterMesh="1" characterGloves="2" characterSkin="0" spineNode="0|0" leftArmIKChainId="leftArm" rightArmIKChainId="rightArm" spineRotation="180 0 105" >
+        <ikChains>
+            <ikChain id="rightFoot" target="0>8|1" targetOffset="0 0.1 0" alignToTarget="true" isDirtyOnLoad="true" >
+                <node index="0|1" />
+                <node index="0|1|0"     minRx="0" maxRx="0" minRy="-30" maxRy="30" minRz="0"   maxRz="120" />
+                <node index="0|1|0|0"   minRx="0" maxRx="0" minRy="0"   maxRy="0"  minRz="-100" maxRz="-7" />
+                <node index="0|1|0|0|0" />
+            </ikChain>
+            <ikChain id="leftFoot" target="0>8|2" targetOffset="0 0.1 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|2"     />
+                <node index="0|2|0"     minRx="0" maxRx="0" minRy="-30" maxRy="30" minRz="0"   maxRz="120" />
+                <node index="0|2|0|0"   minRx="0" maxRx="0" minRy="0"   maxRy="0"  minRz="-100" maxRz="-7" />
+                <node index="0|2|0|0|0" />
+            </ikChain>
+            <ikChain id="rightArm" target="0>7|0|0" targetOffset="0.025 0.066 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|0|0|1" />
+                <node index="0|0|0|1|0" minRx="-20" maxRx="20" minRy="-20" maxRy="20" minRz="-80" maxRz="80" />
+                <node index="0|0|0|1|0|0" minRx="-10" maxRx="10" minRy="0" maxRy="0" minRz="7"   maxRz="130" />
+                <node index="0|0|0|1|0|0|0" />
+                <rotationNode index="0|0|0|1|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|1|0|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|1|0|0|0|1" rotation="-90 20 -40" />
+                <rotationNode index="0|0|0|1|0|0|0|1|0" rotation="0 0 -40" />
+            </ikChain>
+            <ikChain id="leftArm" target="0>7|0|1" targetOffset="-0.025 0.066 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|0|0|2" />
+                <node index="0|0|0|2|0" minRx="-20" maxRx="20" minRy="-20" maxRy="20" minRz="-80" maxRz="80" />
+                <node index="0|0|0|2|0|0" minRx="-10" maxRx="10" minRy="0" maxRy="0" minRz="7"   maxRz="130" />
+                <node index="0|0|0|2|0|0|0" />
+                <rotationNode index="0|0|0|2|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|2|0|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|2|0|0|0|1" rotation="-90 20 -40" />
+                <rotationNode index="0|0|0|2|0|0|0|1|0" rotation="0 0 -40" />
+            </ikChain>
+        </ikChains>
+    </characterNode>
+
+    <aiTrafficCollisionTrigger index="0>14" />
+
+    <attacherJoints>
+        <attacherJoint index="1>11|0|0" rotationNode="1>11" rootNode="1>" minRot="13 0 0" minRot2="-5 0 0" maxRot="-2 0 0" rotationNode2="1>11|0" maxRot2="2 0 0" maxTransLimit="0 0.5 0" maxRotLimit="0 0 20" moveTime="2" ptoOutputNode="1>10" ptoFilename="$data/vehicles/shared/powerTakeoff.i3d">
+            <bottomArm rotationNode="1>12" translationNode="1>12|0" referenceNode="1>12|0|0" zScale="-1" />
+            <!--topArm baseNode="0>13" filename="$data/vehicles/shared/upperLink.i3d" zScale="-1" /-->
+        </attacherJoint>
+        <!-- trailer attacher -->
+        <attacherJoint index="18" jointType="trailer" maxRotLimit="20 85 85" minRotRotationOffset="0" allowsJointLimitMovement="false" />
+        <attacherJoint index="1>9" jointType="trailerLow" maxRotLimit="10 50 50" minRotRotationOffset="0" allowsJointLimitMovement="false" ptoOutputNode="1>10" ptoFilename="$data/vehicles/shared/powerTakeoff.i3d" rootNode="1>"/>
+    </attacherJoints>
+
+    <movingTools>
+        <!-- attacher joint back bottom-->
+        <movingTool index="1>12">
+            <!-- cylinder 1 -->
+            <dependentPart index="1>13" />
+            <!-- cylinder 2 -->
+            <dependentPart index="1>14" />
+            <!-- upper link -->
+            <dependentPart index="1>15" />
+        </movingTool>
+        <movingTool index="0>26">
+            <dependentPart index="0>27" />
+        </movingTool>
+    </movingTools>
+
+    <movingParts>
+
+        <!-- attacher joint back bottom cylinder 1 -->
+        <movingPart index="1>13" referencePoint="1>14|2" referenceFrame="1>14|1" invertZ="false" playSound="false" >
+            <translatingPart index="1>13|0" />
+        </movingPart>
+
+        <!-- attacher joint back bottom cylinder 2 -->
+        <movingPart index="1>14" referencePoint="1>12|0|1" localReferencePoint="1>14|0" referenceFrame="1>" invertZ="true" playSound="false" >
+            <dependentPart index="1>14|0" />
+        </movingPart>
+
+        <!-- attacher joint back bottom cylinder 2b -->
+        <movingPart index="1>14|0" referencePoint="1>12|0|1" referenceFrame="1>14|1" invertZ="false" playSound="false" />
+
+        <!-- upperlink -->
+        <movingPart index="1>15" referencePoint="1>12|1" referenceFrame="1>14|1" scaleZ="true" invertZ="true" playSound="false" />
+
+        <movingPart index="0>17" referencePoint="1>8" referenceFrame="1>" scaleZ="true" invertZ="true" isActiveDirty="true"/>
+        <movingPart index="1>5" referencePoint="16" referenceFrame="1>" scaleZ="true" isActiveDirty="true"/>
+
+        <!-- ladder -->
+        <movingPart index="0>27" referencePoint="0>26|0" referenceFrame="0>26|0" playSound="true" >
+            <translatingPart index="0>27|0" />
+        </movingPart>
+    </movingParts>
+
+    <washable dirtDuration="50" washDuration="1" workMultiplier="4" />
+
+    <driveGroundParticleSystems>
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="1" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="2" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="3" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="4" />
+    </driveGroundParticleSystems>
+
+    <components count="2">
+        <component1 centerOfMass="0 0.8 1.4" solverIterationCount="10" />
+        <component2 centerOfMass="0 0.8 -1.5" solverIterationCount="10" />
+        <joint component1="1" component2="0" index="1>19" rotLimit="0 0 0" transLimit="0 0 0" breakable="false"/>
+    </components>
+
+    <schemaOverlay file="$dataS2/menu/schemas/vehicleSchema.png" fileSelected="$dataS2/menu/schemas/vehicleSchemaSelected.png" width="0.5" height="0.5" attacherJointPosition="0.5 0">
+        <attacherJoint position="1 0" rotation="0" invertX="false" />
+        <attacherJoint position="0 0" rotation="0" invertX="true" />
+        <attacherJoint position="1 0" rotation="0" invertX="false" />
+        <attacherJoint position="1 0" rotation="0" invertX="false" />
+    </schemaOverlay>
+
+</vehicle>

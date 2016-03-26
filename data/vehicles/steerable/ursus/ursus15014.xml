@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="tractor">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+    <name>
+        <en>Ursus 15014</en>
+        <de>Ursus 15014</de>
+    </name>
+    <filename>data/vehicles/steerable/ursus/ursus15014.i3d</filename>
+    <size width="3" length="6"/>
+
+    <wheels autoRotateBackSpeed="1.5">
+        <wheel rotSpeed="70" rotMax="35" rotMin="-35"  restLoad="2.1" repr="0>0" driveNode="0>0|0" radius="0.73" initialCompression="50" suspTravel="0.1" spring="35" damper="70" frictionScale="1.5" mass="0.185" hasTyreTracks="true" fenderNode="0>0|2" fenderRotMin="-26.5"/>
+        <wheel rotSpeed="70" rotMax="35" rotMin="-35"  restLoad="2.1" repr="0>1" driveNode="0>1|0" radius="0.73" initialCompression="50" suspTravel="0.1" spring="35" damper="70" frictionScale="1.5" mass="0.185" hasTyreTracks="true" fenderNode="0>1|2" fenderRotMax="26.5" />
+        <wheel rotSpeed="0"                            restLoad="2.0" repr="0>2"                   radius="0.9"  initialCompression="50" suspTravel="0.1" spring="35" damper="70" frictionScale="1.5" mass="0.38"  hasTyreTracks="true" />
+        <wheel rotSpeed="0"                            restLoad="2.0" repr="0>3"                   radius="0.9"  initialCompression="50" suspTravel="0.1" spring="35" damper="70" frictionScale="1.5" mass="0.38"  hasTyreTracks="true" />
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="2|1" linkNode="0>0|0" filename="$data/vehicles/wheels/trelleborg/trelleborgTM700_480_70R28.i3d" />
+        <dynamicallyLoadedPart node="2|0" linkNode="0>1|0" filename="$data/vehicles/wheels/trelleborg/trelleborgTM700_480_70R28.i3d" />
+        <dynamicallyLoadedPart node="1|1" linkNode="0>2"   filename="$data/vehicles/wheels/trelleborg/trelleborgTM700_580_70R38.i3d" />
+        <dynamicallyLoadedPart node="1|0" linkNode="0>3"   filename="$data/vehicles/wheels/trelleborg/trelleborgTM700_580_70R38.i3d" />
+    </dynamicallyLoadedParts>
+
+    <differentials>
+        <differential torqueRatio="0.5" maxSpeedRatio="1.3" wheelIndex1="0" wheelIndex2="1" /> <!-- front left-right -->
+        <differential torqueRatio="0.5" maxSpeedRatio="1.5" wheelIndex1="2" wheelIndex2="3" /> <!-- back left-right -->
+        <differential torqueRatio="0.5" maxSpeedRatio="1.1" differentialIndex1="0" differentialIndex2="1" /> <!-- front-back -->
+    </differentials>
+
+    <motor torqueScale="0.651" minRpm="1000" maxRpm="2200" maxBackwardSpeed="15" brakeForce="5.5" lowBrakeForceScale="0.22" lowBrakeForceSpeedLimit="1" minForwardGearRatio="19.5" maxForwardGearRatio="130" minBackwardGearRatio="50" maxBackwardGearRatio="130">
+        <torque normRpm="0.45" torque="0.9"/>
+        <torque normRpm="0.5" torque="0.97"/>
+        <torque normRpm="0.59" torque="1"/>
+        <torque normRpm="0.72" torque="1"/>
+        <torque normRpm="0.86" torque="0.88"/>
+        <torque normRpm="1" torque="0.72"/>
+    </motor>
+
+    <fuelCapacity>200</fuelCapacity>
+    <fuelUsage>40</fuelUsage>
+
+    <cameras count="2">
+        <camera1 index="4|0" rotatable="true" rotateNode="4" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="4" transMax="35" >
+            <raycastNode index="0>6"/>
+            <raycastNode index="0>7"/>
+        </camera1>
+        <camera2 index="5" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" />
+    </cameras>
+
+    <lights>
+        <light realLight="0>9" decoration="0>29" lightType="0"/>
+        <light realLight="0>10" decoration="0>30" lightType="1"/>
+    </lights>
+
+    <brakeLights>
+        <brakeLight index="0>32" />
+    </brakeLights>
+
+    <beaconLights>
+        <beaconLight index="0>31" speed="0.015" filename="$data/vehicles/shared/beaconLight02.i3d" />
+    </beaconLights>
+
+    <turnSignals>
+        <turnSignalLeft index="0>34|0" />
+        <turnSignalRight index="0>34|1" />
+    </turnSignals>
+
+    <mirrors>
+        <mirror index="0>35|0" />
+    </mirrors>
+
+    <indoorHud>
+        <speed numbers="0>35|1|2" precision="1" />
+        <rpm animName="rpmDisplay" />
+        <fuel animName="fuelDisplay" />
+    </indoorHud>
+
+    <enterReferenceNode index="0>"/>
+    <exitPoint index="0>8"/>
+
+    <attacherJoints>
+        <attacherJoint index="0>11|0|0" rotationNode="0>11" minRot="40 0 0" minRot2="-32 0 0" maxRot="18 0 0" rotationNode2="0>11|0" maxRot2="-18 0 0" maxTransLimit="0 0.5 0" maxRotLimit="0 0 20" moveTime="2.5" ptoOutputNode="0>20" ptoFilename="$data/vehicles/shared/powerTakeoff.i3d">
+            <bottomArm rotationNode="0>12" translationNode="0>12|0" referenceNode="0>12|0|0" zScale="-1" />
+            <topArm baseNode="0>13" filename="$data/vehicles/shared/upperLink.i3d" zScale="-1" />
+        </attacherJoint>
+        <attacherJoint index="0>16|0|0" rotationNode="0>16" minRot="-30 0 0" minRot2="22 0 0" maxRot="-6 0 0" rotationNode2="16|0" maxRot2="6 0 0" maxTransLimit="0 0.4 0" maxRotLimit="0 0 20" moveTime="2.5" ptoOutputNode="0>22" ptoFilename="$data/vehicles/shared/powerTakeoff.i3d">
+            <bottomArm rotationNode="0>17" translationNode="17|0" referenceNode="17|0|0" zScale="1" />
+            <topArm baseNode="0>18" filename="$data/vehicles/shared/upperLinkSmall.i3d" zScale="1" toggleVisibility="true" />
+        </attacherJoint>
+        <!-- trailer attacher -->
+        <attacherJoint index="0>19|0" jointType="trailer" transNode="0>19" transMinYHeight="0.66" transMaxYHeight="1" maxRotLimit="10 80 80" minRotRotationOffset="0" allowsJointLimitMovement="false" ptoOutputNode="0>20" ptoFilename="$data/vehicles/shared/powerTakeoff.i3d"/>
+        <attacherJoint index="0>21" jointType="trailerLow" maxRotLimit="10 80 80" minRotRotationOffset="0" allowsJointLimitMovement="false" ptoOutputNode="0>20" ptoFilename="$data/vehicles/shared/powerTakeoff.i3d"/>
+        <attacherJoint index="0>23" jointType="trailer" maxRotLimit="10 80 80" minRotRotationOffset="0" allowsJointLimitMovement="false" ptoOutputNode="0>22" ptoFilename="$data/vehicles/shared/powerTakeoff.i3d"/>
+    </attacherJoints>
+
+    <attacherJointLowerCombo duration="2">
+        <attacherJoint index="2" time="0" />
+        <attacherJoint index="1" time="1" />
+        <attacherJoint index="3" time="1" />
+        <attacherJoint index="4" time="1" />
+    </attacherJointLowerCombo>
+
+    <animations>
+        <animation name="rpmDisplay">
+            <part node="0>35|1|1" startTime="0"    endTime="0.27" startRot="0 0 0" endRot="0 0 71" />
+            <part node="0>35|1|1" startTime="0.27" endTime="1"    startRot="0 0 71" endRot="0 0 -153" />
+        </animation>
+        <animation name="fuelDisplay">
+            <part node="0>35|1|0" startTime="0" endTime="1" startRot="0 0 0" endRot="0 0 -120" />
+        </animation>
+    </animations>
+
+    <movingTools>
+        <!-- attacher joint back bottom-->
+        <movingTool index="0>12">
+            <!-- top arm cylinder -->
+            <dependentPart index="0>15" />
+            <dependentPart index="0>14" />
+        </movingTool>
+
+        <!-- attacher joint front bottom-->
+        <movingTool index="0>17">
+            <!-- cylinder -->
+            <dependentPart index="0>33" />
+        </movingTool>
+    </movingTools>
+
+    <movingParts>
+        <!-- top arm hydraulic -->
+        <movingPart index="0>14" referencePoint="0>15|1" referenceFrame="0>15|1">
+            <translatingPart index="0>14|0" />
+        </movingPart>
+
+        <!-- top arm cylinder -->
+        <movingPart index="0>15" referencePoint="0>12|0|1" localReferencePoint="0>15|0" referenceFrame="0>" >
+            <dependentPart index="0>15|0" />
+            <dependentPart index="0>15|1" />
+        </movingPart>
+        <movingPart index="0>15|0" referencePoint="0>12|0|1" referenceFrame="0>12|0|2" />
+
+        <!-- attacher joint front bottom cylinder -->
+        <movingPart index="0>33" referencePoint="0>17|0|1" referenceFrame="0>17|0|1">
+            <translatingPart index="0>33|0" />
+        </movingPart>
+        <!-- steering -->
+        <movingPart index="0>1|1" referencePoint="0>0|1" referenceFrame="0>" isActiveDirty="true" playSound="false" scaleZ="true" />
+    </movingParts>
+
+    <steering index="0>24|0" indoorRotation="540" outdoorRotation="60" />
+
+    <characterNode index="0>27|0" cameraMinDistance="1.5" filename="$dataS2/character/player/player.i3d" characterMesh="1" characterGloves="2" characterSkin="0" spineNode="0|0" leftArmIKChainId="leftArm" rightArmIKChainId="rightArm" spineRotation="180 0 100" >
+        <ikChains>
+            <ikChain id="rightFoot" target="0>27|1" targetOffset="0 0.1 0" alignToTarget="true" isDirtyOnLoad="true" >
+                <node index="0|1" />
+                <node index="0|1|0"     minRx="0" maxRx="0" minRy="-30" maxRy="30" minRz="0"   maxRz="90" />
+                <node index="0|1|0|0"   minRx="0" maxRx="0" minRy="0"   maxRy="0"  minRz="-100" maxRz="-7" />
+                <node index="0|1|0|0|0" />
+            </ikChain>
+            <ikChain id="leftFoot" target="0>27|2" targetOffset="0 0.1 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|2"     />
+                <node index="0|2|0"     minRx="0" maxRx="0" minRy="-30" maxRy="30" minRz="0"   maxRz="90" />
+                <node index="0|2|0|0"   minRx="0" maxRx="0" minRy="0"   maxRy="0"  minRz="-100" maxRz="-7" />
+                <node index="0|2|0|0|0" />
+            </ikChain>
+            <ikChain id="rightArm" target="0>24|0|0" targetOffset="0.025 0.066 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|0|0|1" />
+                <node index="0|0|0|1|0" minRx="-20" maxRx="20" minRy="-20" maxRy="20" minRz="-80" maxRz="80" />
+                <node index="0|0|0|1|0|0" minRx="-10" maxRx="10" minRy="0" maxRy="0" minRz="7"   maxRz="130" />
+                <node index="0|0|0|1|0|0|0" />
+                <rotationNode index="0|0|0|1|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|1|0|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|1|0|0|0|1" rotation="-90 20 -40" />
+                <rotationNode index="0|0|0|1|0|0|0|1|0" rotation="0 0 -40" />
+            </ikChain>
+            <ikChain id="leftArm" target="0>24|0|1" targetOffset="-0.025 0.066 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|0|0|2" />
+                <node index="0|0|0|2|0" minRx="-20" maxRx="20" minRy="-20" maxRy="20" minRz="-80" maxRz="80" />
+                <node index="0|0|0|2|0|0" minRx="-10" maxRx="10" minRy="0" maxRy="0" minRz="7"   maxRz="130" />
+                <node index="0|0|0|2|0|0|0" />
+                <rotationNode index="0|0|0|2|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|2|0|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|2|0|0|0|1" rotation="-90 20 -40" />
+                <rotationNode index="0|0|0|2|0|0|0|1|0" rotation="0 0 -40" />
+            </ikChain>
+        </ikChains>
+    </characterNode>
+
+    <aiTrafficCollisionTrigger index="0>25" />
+
+    <exhaustEffects>
+        <exhaustEffect index="0>26" filename="$data/vehicles/particleAnimations/shared/exhaust.i3d" minRpmColor="0.0 0.0 0.0 9.5" maxRpmColor="0.1 0.1 0.1 0.08" minRpmScale="0.09" maxRpmScale="0.4" forwardXRotations="-50 0 -10" forwardZRotations="-50 0 -10" steerXRotations="0 0 0" steerZRotations="-180 0 150" />
+    </exhaustEffects>
+
+    <motorStartDuration>2500</motorStartDuration>
+    <attachSound file="$data/vehicles/shared/attach.wav" pitchOffset="1" />
+    <motorStartSound file="$data/vehicles/steerable/ursus/ursus15014_start.wav" pitchOffset="0.9" volume="0.65" />
+    <motorSound file="$data/vehicles/steerable/ursus/ursus15014_idle.wav" pitchOffset="0.9" pitchScale="0.012" pitchMax="1.55" volume="0.65" radius="35" innerRadius="20" />
+    <motorSoundRun file="$data/vehicles/steerable/ursus/ursus15014_run.wav" pitchOffset="0.65" pitchScale="0.013" pitchMax="1.475" volume="0.75" />
+	<motorSoundRun2 file="$data/vehicles/shared/transmissionSmall.wav" pitchOffset="0.85" volume="0.25" pitchMax="1.6" volumeMax="0.55"/>
+    <motorStopSound file="$data/vehicles/steerable/ursus/ursus15014_stop.wav" pitchOffset="0.65" />
+    <compressedAirSound file="$data/vehicles/steerable/ursus/ursusBrakeBig.wav" pitchOffset="1" volume="1.2"/>
+    <compressionSound file="$data/vehicles/shared/compressorWork.wav" pitchOffset="1" volume="1.5"/>
+    <hydraulicSound file="$data/vehicles/shared/hydraulicUp.wav" pitchOffset="0.55" volume="0.8" />
+    <honkSound file="$data/vehicles/shared/horn.wav" volume="1" radius="70" innerRadius="10" />
+
+    <washable dirtDuration="50" washDuration="1" workMultiplier="4" />
+
+    <driveGroundParticleSystems>
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="1" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="2" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="3" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="4" />
+    </driveGroundParticleSystems>
+
+    <components count="1">
+        <component1 centerOfMass="0 0.93 0.3" solverIterationCount="10" />
+    </components>
+
+    <schemaOverlay file="$dataS2/menu/schemas/vehicleSchema.png" fileSelected="$dataS2/menu/schemas/vehicleSchemaSelected.png" width="0.5" height="0.5" attacherJointPosition="0.5 0">
+        <attacherJoint position="1 0" rotation="0" invertX="false" />
+        <attacherJoint position="0 0" rotation="0" invertX="true" />
+        <attacherJoint position="1 0" rotation="0" invertX="false" />
+        <attacherJoint position="1 0" rotation="0" invertX="false" />
+        <attacherJoint position="0 0" rotation="0" invertX="true" />
+    </schemaOverlay>
+
+</vehicle>

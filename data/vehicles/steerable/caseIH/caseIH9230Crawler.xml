@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="combine_animated_crawler">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+    <name>
+        <en>Case IH Axial Flow 9230 Quadtrac</en>
+        <de>Case IH Axial Flow 9230 Quadtrac</de>
+    </name>
+    <typeDesc>$l10n_TypeDesc_Harvester</typeDesc>
+    <filename>data/vehicles/steerable/caseIH/caseIH9230.i3d</filename>
+
+    <size width="6" length="12" lengthOffset="-1.5"/>
+
+    <wheels autoRotateBackSpeed="2">
+        <wheel rotSpeed="1" restLoad="2.8" repr="0>2|0" driveNode="0>2|0|0" radius="0.485"             initialCompression="50" suspTravel="0.12" spring="90" damper="30" frictionScale="1.5" mass="0.2" tireType="crawler" />
+        <wheel rotSpeed="1" restLoad="2.2" repr="0>2|1"                     radius="0.485" width="0.9" initialCompression="50" suspTravel="0.12" spring="90" damper="30" frictionScale="1.5" mass="0.2" hasTyreTracks="true" tireType="crawler" />
+        <wheel rotSpeed="1" restLoad="2.8" repr="0>3|0" driveNode="0>3|0|0" radius="0.485"             initialCompression="50" suspTravel="0.12" spring="90" damper="30" frictionScale="1.5" mass="0.2" tireType="crawler" />
+        <wheel rotSpeed="1" restLoad="2.2" repr="0>3|1"                     radius="0.485" width="0.9" initialCompression="50" suspTravel="0.12" spring="90" damper="30" frictionScale="1.5" mass="0.2" hasTyreTracks="true" tireType="crawler" />
+        <wheel rotSpeed="1" restLoad="4.2" repr="0>4" driveNode="0>4|0" radius="0.76" initialCompression="50" suspTravel="0.2" spring="40" damper="40" frictionScale="1.5" mass="0.269" hasTyreTracks="true"/>
+        <wheel rotSpeed="1" restLoad="4.2" repr="0>5" driveNode="0>5|0" radius="0.76" initialCompression="50" suspTravel="0.2" spring="40" damper="40" frictionScale="1.5" mass="0.269" hasTyreTracks="true"/>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="2|0" linkNode="0>4|0" filename="$data/vehicles/wheels/trelleborg/trelleborgTM900_600_70R30.i3d" />
+        <dynamicallyLoadedPart node="2|1" linkNode="0>5|0" filename="$data/vehicles/wheels/trelleborg/trelleborgTM900_600_70R30.i3d" />
+    </dynamicallyLoadedParts>
+
+    <differentials>
+        <differential torqueRatio="0.5" maxSpeedRatio="1.1" wheelIndex1="0" wheelIndex2="1" />
+        <differential torqueRatio="0.5" maxSpeedRatio="1.1" wheelIndex1="2" wheelIndex2="3" />
+        <differential torqueRatio="0.5" maxSpeedRatio="1.7" differentialIndex1="0" differentialIndex2="1" /> <!-- front left-right -->
+        <differential torqueRatio="0.5" maxSpeedRatio="1.4" wheelIndex1="4" wheelIndex2="5" /> <!-- back left-right -->
+        <differential torqueRatio="0.5" maxSpeedRatio="1.2" differentialIndex1="2" differentialIndex2="3" /> <!-- front-back -->
+    </differentials>
+
+    <ackermannSteering rotSpeed="48" rotMax="35" rotCenter="0 1.544" />
+
+    <motor torqueScale="2.53" minRpm="1000" maxRpm="2200" maxBackwardSpeed="15" brakeForce="6" lowBrakeForceScale="0.22" lowBrakeForceSpeedLimit="1" minForwardGearRatio="26" maxForwardGearRatio="130" backwardGearRatio="55">
+        <torque normRpm="0.45" torque="0.9"/>
+        <torque normRpm="0.5" torque="0.97"/>
+        <torque normRpm="0.59" torque="1"/>
+        <torque normRpm="0.72" torque="1"/>
+        <torque normRpm="0.86" torque="0.88"/>
+        <torque normRpm="1" torque="0.72"/>
+    </motor>
+
+    <fuelCapacity>1000</fuelCapacity>
+    <fuelUsage>200</fuelUsage>
+
+    <aiTurnThreshWidthScale value="0.94" />
+    <turnForwardAngleThreshold>40</turnForwardAngleThreshold>
+    <turnBackwardAngleThreshold>2</turnBackwardAngleThreshold>
+    <turnTimeout>1800</turnTimeout>
+
+    <cameras count="2">
+        <camera1 index="6|0|0" rotatable="true" rotateNode="6|0" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="7" transMax="25" >
+            <raycastNode index="0>18"/>
+            <raycastNode index="0>19"/>
+        </camera1>
+        <camera2 index="6|1" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" />
+    </cameras>
+
+    <lights>
+        <light realLight="0>20|0" decoration="0>21|0" lightType="0"/>
+        <light realLight="0>20|1" decoration="0>21|1" lightType="2"/>
+        <light realLight="0>20|2" decoration="0>21|2" lightType="1"/>
+    </lights>
+
+    <brakeLights>
+        <brakeLight index="0>17" />
+    </brakeLights>
+
+    <beaconLights>
+        <beaconLight index="23|0" speed="0.015" filename="$data/vehicles/shared/beaconLight02.i3d"/>
+        <beaconLight index="23|1" speed="0.015" filename="$data/vehicles/shared/beaconLight02.i3d"/>
+        <beaconLight index="23|2" speed="0.015" filename="$data/vehicles/shared/beaconLight02.i3d"/>
+    </beaconLights>
+
+    <turnSignals>
+        <turnSignalLeft index="0>21|3|0" />
+        <turnSignalLeft index="0>39|1|0" />
+        <turnSignalRight index="0>21|3|1" />
+        <turnSignalRight index="0>39|0|0" />
+    </turnSignals>
+
+    <turnOnSettings turnOffText="Turn_off_combine" turnOnText="Turn_on_combine" />
+
+    <mirrors>
+        <mirror index="0>40|0" />
+        <mirror index="0>40|1" />
+        <mirror index="0>40|2" />
+        <mirror index="0>40|3" />
+    </mirrors>
+
+    <indoorHud>
+        <speed numbers="0>37|0" precision="1" />
+        <rpm numbers="0>37|1" precision="0" />
+    </indoorHud>
+
+    <crawlers>
+        <crawler index="0" speedRefWheel="1" scrollSpeed="0.162" scrollLength="6.16" shaderParameterName="offsetUV" shaderParameterComponent="1" length="1" filename="$data/vehicles/wheels/lizard/crawler.i3d" linkIndex="0>2|0" crawlerIndex="1|0">
+            <rotatingPart index="1" radius="0.447" />
+            <rotatingPart index="2" radius="0.338" />
+            <rotatingPart index="3" radius="0.338" />
+            <rotatingPart index="4" radius="0.17" />
+            <rotatingPart index="5" radius="0.17" />
+            <rotatingPart index="6" radius="0.17" />
+        </crawler>
+        <crawler index="0" speedRefWheel="3" scrollSpeed="0.162" scrollLength="6.16" shaderParameterName="offsetUV" shaderParameterComponent="1" length="1" filename="$data/vehicles/wheels/lizard/crawler.i3d" linkIndex="0>3|0" crawlerIndex="1|1">
+            <rotatingPart index="1" radius="0.447" />
+            <rotatingPart index="2" radius="0.338" />
+            <rotatingPart index="3" radius="0.338" />
+            <rotatingPart index="4" radius="0.17" />
+            <rotatingPart index="5" radius="0.17" />
+            <rotatingPart index="6" radius="0.17" />
+        </crawler>
+    </crawlers>
+
+    <attacherJoints>
+        <attacherJoint jointType="cutter" index="0>12|0|0" jointPositionOffset="0 0 -2.33082" rotationNode="0>12|0" minRot="-8 0 0" maxRot="12 0 0" maxTransLimit="0 0 0" maxRotLimit="0 0 20" moveTime="2.5"  ptoOutputNode="0>12|1|3" ptoFilename="$data/vehicles/shared/powerTakeoffBlack.i3d">
+            <bottomArm rotationNode="0>12|1" referenceNode="0>12|1|4" />
+        </attacherJoint>
+        <!-- trailer attacher -->
+        <attacherJoint index="0>24" jointType="trailerLow" allowsJointLimitMovement="false" allowsLowering="false" maxRotLimit="10 50 50" maxTransLimit="0 0 0" canTurnOnImplement="false" />
+    </attacherJoints>
+
+    <enterReferenceNode index="0>" />
+
+    <exitPoint index="0>7" />
+
+    <motorStartDuration>2500</motorStartDuration>
+    <attachSound file="$data/vehicles/shared/attach.wav" pitchOffset="1" />
+    <threshingStartSound file="$data/vehicles/steerable/caseIH/caseIH9230_startwork.wav" pitchOffset="1" />
+    <threshingSound file="$data/vehicles/steerable/caseIH/caseIH9230_work.wav" pitchOffset="1" pitchScale="0.001" pitchMax="1.1" radius="35" innerRadius="25" />
+    <threshingStopSound file="$data/vehicles/steerable/caseIH/caseIH9230_stopwork.wav" pitchOffset="1" />
+    <motorStartSound file="$data/vehicles/steerable/caseIH/caseIH9230_start.wav" pitchOffset="0.82" volume="1.0" />
+    <motorSound file="$data/vehicles/steerable/caseIH/caseIH9230_idle.wav" pitchOffset="0.82" pitchScale="0.0095" pitchMax="1.15" volume="1" radius="50" innerRadius="20" />
+    <motorSoundRun file="$data/vehicles/steerable/krone/hydraulic_run.wav" pitchOffset="0.5" pitchScale="0.0095" pitchMax="1.1" volume="0.4" />
+    <motorSoundRun2 file="$data/vehicles/shared/transmissionScorpion.wav" pitchOffset="1.1" volume="0.4" pitchMax="1.35" volumeMax="0.425"/>
+    <motorStopSound file="$data/vehicles/steerable/caseIH/caseIH9230_stop.wav" pitchOffset="1" />
+    <reverseDriveSound file="$data/vehicles/shared/reverseDrivingBeep.wav" volume="0.5" />
+    <compressedAirSound file="$data/vehicles/shared/brakeBig.wav" pitchOffset="1" volume="1.0"/>
+    <compressionSound file="$data/vehicles/shared/compressorWork.wav" pitchOffset="1" volume="1.5"/>
+    <honkSound file="$data/vehicles/shared/horn.wav" volume="1" radius="70" innerRadius="10" />
+    <cylinderedHydraulicSound file="$data/vehicles/shared/hydraulicUp.wav" pitchOffset="0.65" volume="0.72" />
+    <hydraulicSound file="$data/vehicles/shared/hydraulicUp.wav" pitchOffset="0.55" volume="0.8" />
+    <pipeSound file="$data/vehicles/shared/hydraulicUp.wav" pitchOffset="1" />
+
+    <pipe numStates="2" unloadingStates="2" raycastNodeIndex="8|0|0|0|1|0|1" raycastDistance="6" foldMinState="1" foldMaxState="1" foldMinLimit="0" foldMaxLimit="0">
+        <node index="0>8|0" rotationSpeeds="0 15 0">
+            <state1 rotation="0 0 0"/>
+            <state2 rotation="0 -90 0"/>
+        </node>
+    </pipe>
+
+    <turnedOnRotationNodes>
+        <turnedOnRotationNode index="0>26"       type="combine" rotSpeed="600"  rotAxis="1" turnOnFadeTime="4" turnOffFadeTime="3" />
+        <turnedOnRotationNode index="0>12|1|0"   type="combine" rotSpeed="300"  rotAxis="1" turnOnFadeTime="2" turnOffFadeTime="2" />
+        <turnedOnRotationNode index="0>28|1|0|0" type="combine" rotSpeed="-550" rotAxis="1" turnOnFadeTime="4" turnOffFadeTime="3" />
+        <turnedOnRotationNode index="0>29|0|0|0" type="combine" rotSpeed="800"  rotAxis="1" turnOnFadeTime="4" turnOffFadeTime="3" />
+        <turnedOnRotationNode index="0>29|0|1|0" type="combine" rotSpeed="-800" rotAxis="1" turnOnFadeTime="4" turnOffFadeTime="3" />
+    </turnedOnRotationNodes>
+
+    <foldingParts startMoveDirection="1" turnOnFoldMinLimit="0" turnOnFoldMaxLimit="0.02" >
+        <foldingPart animationName="foldGrainTank" speedScale="1.1" />
+    </foldingParts>
+
+    <mouseControls>
+        <mouseControl iconFilename="$dataS2/menu/mouseControlsHelp/pipe_end.png" axis="AXIS_FRONTLOADER_ARM" />
+    </mouseControls>
+
+   <animations>
+        <animation name="enterAnimation">
+            <!-- ladder -->
+            <part node="0>32" startTime="0" endTime="1" startRot="0 0 0" endRot="0 -90 0"/>
+        </animation>
+        <animation name="foldGrainTank">
+            <part node="0>39|0" startTime="0" endTime="2" startRot="0 -85 0" endRot="0 0 0"/>
+            <part node="0>39|1" startTime="0" endTime="2" startRot="0 90 0" endRot="0 0 0"/>
+
+            <part node="0>29|0" startTime="0" endTime="3" startRot="0 0 0" endRot="20 0 0"/>
+            <part node="0>28|1" startTime="0" endTime="5" startRot="0 0 0" endRot="0 0 -31"/>
+            <part node="0>28|0" startTime="0" endTime="5" startRot="0 0 0" endRot="0 0 -73"/>
+            <part node="0>28|5" startTime="0" endTime="5" startRot="0 0 0" endRot="-138 0 0"/>
+            <part node="0>28|4" startTime="0" endTime="5" startRot="0 0 0" endRot="138 0 0"/>
+            <part node="0>28|3" startTime="1.5" endTime="5" startRot="0 0 0" endRot="0 0 -138"/>
+            <part node="0>28|2" startTime="1.5" endTime="5" startRot="0 0 0" endRot="0 0 138"/>
+
+            <!-- skinned rubber flaps -->
+
+            <!-- rubber flaps front left -->
+            <part node="0>35|0|0" startTime="1.5" duration="1.166" startTrans="0.524 0.419 -0.409" endTrans="0.053 0.673 -0.409"/>
+            <part node="0>35|0|0" startTime="2.666" duration="1.166" startTrans="0.053 0.673 -0.409" endTrans="-0.563 0.396 -0.409"/>
+            <part node="0>35|0|0" startTime="3.832" duration="1.168" startTrans="-0.563 0.396 -0.409" endTrans="-0.694 0.032 -0.409"/>
+
+            <part node="0>35|0|1" startTime="0" duration="1" startTrans="-0.416 0.422 0.536" endTrans="-0.416 0.613 0.275"/>
+            <part node="0>35|0|1" startTime="1" duration="1" startTrans="-0.416 0.613 0.275" endTrans="-0.416 0.666 -0.057"/>
+            <part node="0>35|0|1" startTime="2" duration="1" startTrans="-0.416 0.666 -0.057" endTrans="-0.416 0.558 -0.376"/>
+            <part node="0>35|0|1" startTime="3" duration="1" startTrans="-0.416 0.558 -0.376" endTrans="-0.416 0.313 -0.607"/>
+            <part node="0>35|0|1" startTime="4" duration="1" startTrans="-0.416 0.313 -0.607" endTrans="-0.416 -0.012 -0.698"/>
+
+            <part node="0>35|0|2" startTime="0" duration="1.666" startTrans="0.257 0.428 0.263" endTrans="-0.032 0.493 -0.045"/>
+            <part node="0>35|0|2" startTime="1.666" duration="1.666" startTrans="-0.032 0.493 -0.045" endTrans="-0.428 0.179 -0.492"/>
+            <part node="0>35|0|2" startTime="3.332" duration="1.668" startTrans="-0.428 0.179 -0.492" endTrans="-0.709 -0.103 -0.696"/>
+
+            <!-- rubber flaps front right -->
+            <part node="0>35|1|0" startTime="1.5" duration="1.166" startTrans="-0.511 0.422 -0.384" endTrans="-0.039 0.673 -0.384"/>
+            <part node="0>35|1|0" startTime="2.666" duration="1.166" startTrans="-0.039 0.673 -0.384" endTrans="0.575 0.392 -0.384"/>
+            <part node="0>35|1|0" startTime="3.832" duration="1.168" startTrans="0.575 0.392 -0.384" endTrans="0.704 0.027 -0.384"/>
+
+            <part node="0>35|1|1" startTime="0" duration="1" startTrans="0.422 0.422 0.549" endTrans="0.422 0.613 0.289"/>
+            <part node="0>35|1|1" startTime="1" duration="1" startTrans="0.422 0.613 0.289" endTrans="0.422 0.666 -0.044"/>
+            <part node="0>35|1|1" startTime="2" duration="1" startTrans="0.422 0.666 -0.044" endTrans="0.422 0.558 -0.363"/>
+            <part node="0>35|1|1" startTime="3" duration="1" startTrans="0.422 0.558 -0.363" endTrans="0.422 0.313 -0.594"/>
+            <part node="0>35|1|1" startTime="4" duration="1" startTrans="0.422 0.313 -0.594" endTrans="0.422 -0.012 -0.685"/>
+
+            <part node="0>35|1|2" startTime="0" duration="1.666" startTrans="-0.249 0.428 0.274" endTrans="-0.235 0.442 -0.016"/>
+            <part node="0>35|1|2" startTime="1.666" duration="1.666" startTrans="-0.235 0.442 -0.016" endTrans="0.443 0.395 -0.439"/>
+            <part node="0>35|1|2" startTime="3.332" duration="1.668" startTrans="0.443 0.395 -0.439" endTrans="0.535 -0.103 -0.683"/>
+
+            <!-- rubber flaps back left -->
+            <part node="0>35|2|0" startTime="1.5" duration="1.166" startTrans="0.536 0.419 0.439" endTrans="0.065 0.675 0.439"/>
+            <part node="0>35|2|0" startTime="2.666" duration="1.166" startTrans="0.065 0.675 0.439" endTrans="-0.446 0.513 0.439"/>
+            <part node="0>35|2|0" startTime="3.832" duration="1.168" startTrans="-0.446 0.513 0.439" endTrans="-0.685 0.033 0.439"/>
+
+            <part node="0>35|2|1" startTime="0" duration="1" startTrans="-0.403 0.419 -0.523" endTrans="-0.403 0.612 -0.263"/>
+            <part node="0>35|2|1" startTime="1" duration="1" startTrans="-0.403 0.612 -0.263" endTrans="-0.403 0.667 0.069"/>
+            <part node="0>35|2|1" startTime="2" duration="1" startTrans="-0.403 0.667 0.069" endTrans="-0.403 0.56 0.389"/>
+            <part node="0>35|2|1" startTime="3" duration="1" startTrans="-0.403 0.56 0.389" endTrans="-0.403 0.317 0.622"/>
+            <part node="0>35|2|1" startTime="4" duration="1" startTrans="-0.403 0.317 0.622" endTrans="-0.403 -0.007 0.714"/>
+
+            <part node="0>35|2|2" startTime="0" duration="1.666" startTrans="0.273 0.427 -0.252" endTrans="0.261 0.514 -0.055"/>
+            <part node="0>35|2|2" startTime="1.666" duration="1.666" startTrans="0.261 0.514 -0.055" endTrans="-0.418 0.318 0.526"/>
+            <part node="0>35|2|2" startTime="3.332" duration="1.668" startTrans="-0.418 0.318 0.526" endTrans="-0.486 -0.103 0.501"/>
+
+            <!-- rubber flaps back right -->
+            <part node="0>35|3|0" startTime="1.5" duration="1.166" startTrans="-0.503 0.427 0.415" endTrans="-0.028 0.674 0.415"/>
+            <part node="0>35|3|0" startTime="2.666" duration="1.166" startTrans="-0.028 0.674 0.415" endTrans="0.479 0.505 0.415"/>
+            <part node="0>35|3|0" startTime="3.832" duration="1.168" startTrans="0.479 0.505 0.415" endTrans="0.71 0.022 0.415"/>
+
+            <part node="0>35|3|1" startTime="0" duration="1" startTrans="0.435 0.418 -0.526" endTrans="0.435 0.612 -0.267"/>
+            <part node="0>35|3|1" startTime="1" duration="1" startTrans="0.435 0.612 -0.267" endTrans="0.435 0.669 0.066"/>
+            <part node="0>35|3|1" startTime="2" duration="1" startTrans="0.435 0.669 0.066" endTrans="0.435 0.564 0.387"/>
+            <part node="0>35|3|1" startTime="3" duration="1" startTrans="0.435 0.564 0.387" endTrans="0.435 0.321 0.622"/>
+            <part node="0>35|3|1" startTime="4" duration="1" startTrans="0.435 0.321 0.622" endTrans="0.435 -0.004 0.716"/>
+
+            <part node="0>35|3|2" startTime="0" duration="1.666" startTrans="-0.245 0.428 -0.255" endTrans="-0.235 0.514 -0.054"/>
+            <part node="0>35|3|2" startTime="1.666" duration="1.666" startTrans="-0.235 0.514 -0.054" endTrans="0.403 0.318 0.526"/>
+            <part node="0>35|3|2" startTime="3.332" duration="1.668" startTrans="0.403 0.318 0.526" endTrans="0.58 -0.103 0.501"/>
+
+            <!-- pipe end -->
+            <part node="0>8|0|0|0" startTime="0" duration="2.5" startRot="0 0 0" endRot="0 90 0"/>
+            <part node="0>8|0|1|0" startTime="0" duration="2.5" startRot="0 90 0" endRot="0 0 0"/>
+        </animation>
+
+        <animation name="toggleChopper">
+            <part node="0>29|1" startTime="0" duration="1.5" startRot="30 0 0" endRot="0 0 0"/>
+        </animation>
+    </animations>
+
+    <movingTools>
+        <movingTool index="0>8|0|0|0|1|0" rotSpeed="20" rotAcceleration="300" rotMax="22" rotMin="3" rotationAxis="3" axis="AXIS_FRONTLOADER_ARM" invertAxis="true" invertMouseAxis="true" speedFactor="0.7">
+            <dependentPart index="0>8|0|0|0|1|1" />
+        </movingTool>
+
+        <!-- pipe -->
+        <movingTool index="0>8|0">
+            <dependentPart index="0>25" />
+        </movingTool>
+        <!-- pipePart -->
+        <movingTool index="0>8|0|0|0">
+            <dependentPart index="0>8|0|3" />
+            <dependentPart index="0>8|0|1|0|0" />
+        </movingTool>
+
+        <movingTool index="0>12|1">
+            <dependentPart index="0>27" />
+        </movingTool>
+
+        <movingTool index="0>32">
+            <dependentPart index="0>33|0" />
+            <dependentPart index="0>33|1" />
+            <dependentPart index="0>33|2" />
+            <dependentPart index="0>33|3" />
+        </movingTool>
+
+        <movingTool index="0>28|1">
+            <dependentPart index="0>28|0|0" />
+            <dependentPart index="0>28|0|1" />
+            <dependentPart index="0>28|0|2" />
+        </movingTool>
+    </movingTools>
+
+    <movingParts>
+        <movingPart index="0>8|0|1|0|0" referencePoint="0>8|0|0|0|0" referenceFrame="0>8|0|0|0|0" scaleZ="true"/>
+        <movingPart index="0>8|0|3" referencePoint="0>8|0|1|0|1" referenceFrame="0>8|0|1">
+            <translatingPart index="0>8|0|3|0" />
+        </movingPart>
+        <movingPart index="0>25" referencePoint="0>8|0|2" referenceFrame="0>">
+            <translatingPart index="0>25|0" />
+        </movingPart>
+        <movingPart index="0>27" referencePoint="0>12|1|1" referenceFrame="0>" playSound="false" >
+            <translatingPart index="0>27|0" />
+        </movingPart>
+
+        <movingPart index="0>8|0|0|0|1|1" referencePoint="0>8|0|0|0|1|0|0" referenceFrame="0>">
+            <translatingPart index="0>8|0|0|0|1|1|0" />
+        </movingPart>
+
+        <movingPart index="0>4|1" referencePoint="0>5|1" referenceFrame="0>" scaleZ="true" playSound="false" isActiveDirty="true"/>
+
+        <movingPart index="0>34|0" referencePoint="0>4|2" referenceFrame="0>4|2" playSound="false" isActiveDirty="true">
+            <translatingPart index="0>34|0|0" />
+        </movingPart>
+        <movingPart index="0>34|1" referencePoint="0>5|2" referenceFrame="0>5|2" playSound="false" isActiveDirty="true">
+            <translatingPart index="0>34|1|0" />
+        </movingPart>
+
+        <movingPart index="0>33|0" referencePoint="0>32|0" referenceFrame="0>" scaleZ="true" playSound="false"/>
+        <movingPart index="0>33|1" referencePoint="0>32|1" referenceFrame="0>" scaleZ="true" playSound="false"/>
+        <movingPart index="0>33|2" referencePoint="0>32|2" referenceFrame="0>" scaleZ="true" playSound="false"/>
+        <movingPart index="0>33|3" referencePoint="0>32|3" referenceFrame="0>" scaleZ="true" playSound="false"/>
+
+        <movingPart index="0>28|0|2" referencePoint="0>28|1|2" referenceFrame="0>28|1|2" scaleZ="true" />
+        <movingPart index="0>28|0|1" referencePoint="0>28|5|0" referenceFrame="0>28|0|3" scaleZ="true" />
+        <movingPart index="0>28|0|0" referencePoint="0>28|4|0" referenceFrame="0>28|0|4" scaleZ="true" />
+
+        <movingPart index="0>2|0" referencePoint="0>2|1" referenceFrame="0>" playSound="false" isActiveDirty="true" />
+        <movingPart index="0>3|0" referencePoint="0>3|1" referenceFrame="0>" playSound="false" isActiveDirty="true" />
+    </movingParts>
+
+    <fillEffect>
+        <effectNode node="1|0|0" linkNode="0>28|1|1" position="0 0 0" materialType="unloading" materialTypeId="3" delay="0"   filename="$data/vehicles/particleAnimations/caseIH/caseIH9230.i3d" />
+        <effectNode node="1|0|1" linkNode="0>28|1|1" position="0 0 0" materialType="smoke"     materialTypeId="1" delay="0.1" filename="$data/vehicles/particleAnimations/caseIH/caseIH9230.i3d" />
+    </fillEffect>
+
+    <pipeEffect>
+        <effectNode node="0|0|0" linkNode="0>8|0|0|0|1|0|2" position="0 0 0" materialType="unloading" materialTypeId="3" delay="0"   filename="$data/vehicles/particleAnimations/caseIH/caseIH9230.i3d" />
+        <effectNode node="0|0|1" linkNode="0>8|0|0|0|1|0|2" position="0 0 0" materialType="smoke"     materialTypeId="1" delay="0.1" filename="$data/vehicles/particleAnimations/caseIH/caseIH9230.i3d" />
+    </pipeEffect>
+
+    <strawParticleSystems toggleTime="4300" />
+
+    <strawEffect>
+        <effectNode node="2|0|0" linkNode="0>13|1" materialType="straw" materialTypeId="1" delay="0" filename="$data/vehicles/particleAnimations/caseIH/caseIH9230.i3d" />
+    </strawEffect>
+
+    <chopperParticleSystems toggleTime="4300">
+        <chopperParticleSystem type="wheat"  node="0>13|2" psRootNode="0|0" file="$data/vehicles/particleAnimations/caseIH/caseIH9230Particles.i3d" />
+        <chopperParticleSystem type="barley" node="0>13|2" psRootNode="0|0" file="$data/vehicles/particleAnimations/caseIH/caseIH9230Particles.i3d" />
+        <chopperParticleSystem type="rape"   node="0>13|2" psRootNode="0|0" file="$data/vehicles/particleAnimations/caseIH/caseIH9230Particles.i3d" />
+        <chopperParticleSystem type="maize"  node="0>13|2" psRootNode="0|1" file="$data/vehicles/particleAnimations/caseIH/caseIH9230Particles.i3d" />
+    </chopperParticleSystems>
+
+    <chopperEffect>
+        <effectNode node="3|0|0" linkNode="0>13|1" materialType="chopper" materialTypeId="1" delay="0" filename="$data/vehicles/particleAnimations/caseIH/caseIH9230.i3d" />
+    </chopperEffect>
+
+    <exhaustEffects>
+        <exhaustEffect index="0>13|0" filename="$data/vehicles/particleAnimations/shared/exhaust.i3d" minRpmColor="0.0 0.0 0.0 9.5" maxRpmColor="0.1 0.1 0.1 0.08" minRpmScale="0.2" maxRpmScale="0.55" forwardXRotations="-220 0 220" forwardZRotations="0 0 0" steerXRotations="0 0 0" steerZRotations="180 0 -180" />
+    </exhaustEffects>
+
+    <exhaustFlap index="0>30" maxRot="90" />
+
+    <fillVolumes>
+        <fillVolume index="0>10|0" />
+    </fillVolumes>
+
+    <fillVolumeUnloadInfo index="0>35" width="0.4" length="0.4" />
+    <fillVolumeLoadInfo index="0>36" width="0.4" length="0.4" />
+    <fillVolumeDischargeInfo index="0>8|0|0|0|1|0|3" width="0.4" length="0.4" />
+
+    <capacity>12330</capacity>
+    <overloadingCapacity>350</overloadingCapacity>
+    <fillTypes fillTypes="wheat rape maize barley" />
+    <allowFillFromAir value="false" />
+
+    <combineSize>3</combineSize>
+
+    <steering index="0>9|0" indoorRotation="540" outdoorRotation="50" />
+
+    <characterNode index="0>11|0" cameraMinDistance="1.5" filename="$dataS2/character/player/player.i3d" characterMesh="1" characterGloves="2" characterSkin="0" spineNode="0|0" leftArmIKChainId="leftArm" spineRotation="180 0 108" >
+        <ikChains>
+            <ikChain id="rightFoot" target="0>11|1" targetOffset="0 0.1 0" alignToTarget="true" isDirtyOnLoad="true" >
+                <node index="0|1" />
+                <node index="0|1|0"     minRx="0" maxRx="0" minRy="-30" maxRy="30" minRz="0"   maxRz="90" />
+                <node index="0|1|0|0"   minRx="0" maxRx="0" minRy="0"   maxRy="0"  minRz="-100" maxRz="-7" />
+                <node index="0|1|0|0|0" />
+            </ikChain>
+            <ikChain id="leftFoot" target="0>11|2" targetOffset="0 0.1 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|2"     />
+                <node index="0|2|0"     minRx="0" maxRx="0" minRy="-30" maxRy="30" minRz="0"   maxRz="90" />
+                <node index="0|2|0|0"   minRx="0" maxRx="0" minRy="0"   maxRy="0"  minRz="-100" maxRz="-7" />
+                <node index="0|2|0|0|0" />
+            </ikChain>
+            <ikChain id="rightArm" target="0>9|1" targetOffset="0.025 0.066 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|0|0|1" />
+                <node index="0|0|0|1|0" minRx="-20" maxRx="20" minRy="-20" maxRy="20" minRz="-80" maxRz="80"/>
+                <node index="0|0|0|1|0|0" minRx="-10" maxRx="10" minRy="0" maxRy="0" minRz="7"   maxRz="130" />
+                <node index="0|0|0|1|0|0|0" />
+                <rotationNode index="0|0|0|1|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|1|0|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|1|0|0|0|1" rotation="-90 20 -40" />
+                <rotationNode index="0|0|0|1|0|0|0|1|0" rotation="0 0 -40" />
+            </ikChain>
+            <ikChain id="leftArm" target="0>9|0|0" targetOffset="-0.025 0.066 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|0|0|2" />
+                <node index="0|0|0|2|0" minRx="-20" maxRx="20" minRy="-20" maxRy="20" minRz="-80" maxRz="80"/>
+                <node index="0|0|0|2|0|0" minRx="-10" maxRx="10" minRy="0" maxRy="0" minRz="7"   maxRz="130" />
+                <node index="0|0|0|2|0|0|0" />
+                <rotationNode index="0|0|0|2|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|2|0|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|2|0|0|0|1" rotation="-90 20 -40" />
+                <rotationNode index="0|0|0|2|0|0|0|1|0" rotation="0 0 -40" />
+            </ikChain>
+        </ikChains>
+    </characterNode>
+
+    <workAreas>
+        <workArea startIndex="0>14|0" widthIndex="0>14|1" heightIndex="0>14|2" type="combine" />
+    </workAreas>
+
+    <trailerTriggers>
+        <trailerTrigger index="0>16" />
+    </trailerTriggers>
+    <aiTrafficCollisionTrigger index="0>15" />
+
+    <skinnedNodes>
+        <skinnedNode index="0>36|0" />
+        <skinnedNode index="0>36|1" />
+        <skinnedNode index="0>36|2" />
+        <skinnedNode index="0>36|3" />
+    </skinnedNodes>
+
+    <spareParts>
+        <sparePart index="0>0"    visibility="false" />
+        <sparePart index="0>1"    visibility="false" />
+        <sparePart index="0>38|1" visibility="false" />
+        <sparePart index="0>2"    visibility="true" />
+        <sparePart index="0>3"    visibility="true" />
+        <sparePart index="0>38|0" visibility="true" />
+    </spareParts>
+
+    <chopperSwitch available="true" />
+
+    <enterAnimation name="enterAnimation" />
+
+    <driveGroundParticleSystems>
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="1" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="2" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="3" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="4" />
+    </driveGroundParticleSystems>
+
+    <washable dirtDuration="300" washDuration="1" workMultiplier="2" />
+
+    <components count="1">
+        <component1 centerOfMass="0 0.95 -0.2" solverIterationCount="10" />
+    </components>
+
+    <schemaOverlay file="$dataS2/menu/schemas/vehicleSchema.png" fileSelected="$dataS2/menu/schemas/vehicleSchemaSelected.png" fileTurnedOn="$dataS2/menu/schemas/vehicleSchemaTurnedOn.png" fileSelectedTurnedOn="$dataS2/menu/schemas/vehicleSchemaSelectedTurnedOn.png" width="0.5" height="0.5" attacherJointPosition="0.5 0">
+        <attacherJoint position="0 0" rotation="0" invertX="true" />
+        <attacherJoint position="1 0" rotation="0" invertX="false" />
+    </schemaOverlay>
+
+</vehicle>

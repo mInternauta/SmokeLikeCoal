@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="selfPropelledMixerWagon">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+    <name>
+        <en>Kuhn SPV Confort 12</en>
+        <de>Kuhn SPV Confort 12</de>
+    </name>
+    <typeDesc>$l10n_TypeDesc_MixerWagon</typeDesc>
+    <filename>data/vehicles/steerable/kuhn/kuhnSPVConfort12.i3d</filename>
+
+    <size width="3.6" length="9"/>
+
+    <wheels autoRotateBackSpeed="1.5">
+        <wheel rotSpeed="60" rotMax="32" rotMin="-32"  restLoad="2.6" repr="0" radius="0.45" initialCompression="50" suspTravel="0.1" spring="60" damper="20" frictionScale="1.5" mass="0.05" hasTyreTracks="true" tyreTrackAtlasIndex="1"/>
+        <wheel rotSpeed="60" rotMax="32" rotMin="-32"  restLoad="2.6" repr="1" radius="0.45" initialCompression="50" suspTravel="0.1" spring="60" damper="20" frictionScale="1.5" mass="0.05" hasTyreTracks="true" tyreTrackAtlasIndex="1"/>
+        <wheel rotSpeed="0"                            restLoad="2.6" repr="2" radius="0.45" initialCompression="50" suspTravel="0.1" spring="60" damper="20" frictionScale="1.5" mass="0.07" hasTyreTracks="true" tyreTrackAtlasIndex="1"/>
+        <wheel rotSpeed="0"                            restLoad="2.6" repr="3" radius="0.45" initialCompression="50" suspTravel="0.1" spring="60" damper="20" frictionScale="1.5" mass="0.07" hasTyreTracks="true" tyreTrackAtlasIndex="1"/>
+    </wheels>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="1|0" linkNode="0>0" filename="$data/vehicles/wheels/trelleborg/trelleborgAW305_380_55_17.i3d" />
+        <dynamicallyLoadedPart node="1|1" linkNode="0>1" filename="$data/vehicles/wheels/trelleborg/trelleborgAW305_380_55_17.i3d" />
+        <dynamicallyLoadedPart node="1|1" linkNode="0>2" filename="$data/vehicles/wheels/trelleborg/trelleborgAW305_480_45_17.i3d" />
+        <dynamicallyLoadedPart node="1|0" linkNode="0>3" filename="$data/vehicles/wheels/trelleborg/trelleborgAW305_480_45_17.i3d" />
+    </dynamicallyLoadedParts>
+
+    <differentials>
+        <differential torqueRatio="0.5" maxSpeedRatio="1.4" wheelIndex1="0" wheelIndex2="1" /> <!-- front left-right -->
+        <differential torqueRatio="0.5" maxSpeedRatio="1.5" wheelIndex1="2" wheelIndex2="3" /> <!-- back left-right -->
+        <differential torqueRatio="0.5" maxSpeedRatio="1.5" differentialIndex1="0" differentialIndex2="1" /> <!-- front-back -->
+    </differentials>
+
+    <motor torqueScale="0.616" minRpm="1000" maxRpm="2200" maxBackwardSpeed="15" brakeForce="4" lowBrakeForceScale="0.22" lowBrakeForceSpeedLimit="1" minForwardGearRatio="19.5" maxForwardGearRatio="130" minBackwardGearRatio="50" maxBackwardGearRatio="130">
+        <torque normRpm="0.45" torque="0.9"/>
+        <torque normRpm="0.5" torque="0.97"/>
+        <torque normRpm="0.59" torque="1"/>
+        <torque normRpm="0.72" torque="1"/>
+        <torque normRpm="0.86" torque="0.88"/>
+        <torque normRpm="1" torque="0.72"/>
+    </motor>
+
+    <fuelCapacity>200</fuelCapacity>
+    <fuelUsage>40</fuelUsage>
+
+    <cameras count="2">
+        <camera1 index="4|0" rotatable="true" rotateNode="4" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="6" transMax="20" >
+            <raycastNode index="0>12"/>
+            <raycastNode index="0>13"/>
+        </camera1>
+        <camera2 index="5" rotatable="true" limit="true" rotMinX="-1.4" rotMaxX="0.5" transMin="0" transMax="0" useMirror="true" isInside="true" />
+    </cameras>
+
+    <lights>
+        <light realLight="0>7" decoration="0>15" lightType="0"/>
+        <light decoration="0>17|4" lightType="0"/>
+        <light realLight="0>29" decoration="0>30" lightType="1"/>
+    </lights>
+
+    <brakeLights>
+        <brakeLight index="0>31" />
+    </brakeLights>
+
+    <beaconLights count="2">
+        <beaconLight index="16"   speed="0.015" filename="$data/vehicles/shared/beaconLight02.i3d" />
+        <beaconLight index="17|2" speed="0.015" filename="$data/vehicles/shared/beaconLight02.i3d" />
+    </beaconLights>
+
+    <turnSignals>
+        <turnSignalLeft index="0>32|0" />
+        <turnSignalRight index="0>32|1" />
+    </turnSignals>
+
+    <reverseLights>
+        <reverseLight index="0>33" />
+    </reverseLights>
+
+    <mirrors>
+        <mirror index="0>34|0" />
+    </mirrors>
+
+    <indoorHud>
+        <speed numbers="0>34|1|3" precision="1" />
+        <fillLevel animName="fillLevelDisplay" />
+        <fuel animName="fuelDisplay" />
+    </indoorHud>
+
+    <enterReferenceNode index="0>" />
+
+    <exitPoint index="6" />
+
+    <motorStartDuration>2500</motorStartDuration>
+    <attachSound file="$data/vehicles/shared/attach.wav" pitchOffset="1" />
+    <mixerWagonPickupStartSound file="$data/vehicles/steerable/kuhn/kuhnSPV_startWork.wav" pitchoffset="1" volume="1" />
+    <mixerWagonPickupSound file="$data/vehicles/steerable/kuhn/kuhnSPV_work.wav" pitchoffset="1" pickupPitchOffset="0.96" volume="1" radius="50" innerRadius="20" />
+    <mixerWagonPickupStopSound file="$data/vehicles/steerable/kuhn/kuhnSPV_stopWork.wav" pitchoffset="1" volume="1" />
+    <motorStartSound file="$data/vehicles/steerable/kuhn/kuhnSPV_start.wav" pitchOffset="1" volume="1" />
+    <motorSound file="$data/vehicles/steerable/kuhn/kuhnSPV_idle.wav" pitchOffset="1" pitchScale="0.02" pitchMax="1.45" volume="1" radius="50" innerRadius="20" />
+    <motorSoundRun file="$data/vehicles/steerable/krone/hydraulic_run.wav" pitchOffset="0.65" pitchScale="0.0093" pitchMax="1.25" volume="0.4" />
+    <motorStopSound file="$data/vehicles/steerable/kuhn/kuhnSPV_stop.wav" pitchOffset="1" volume="1" />
+    <reverseDriveSound file="$data/vehicles/shared/reverseDrivingBeep.wav" volume="0.45" />
+    <compressedAirSound file="$data/vehicles/shared/compressedAir.wav" pitchOffset="1" volume="1"/>
+    <compressionSound file="$data/vehicles/shared/compressorWork.wav" pitchOffset="1" volume="1.5"/>
+    <cylinderedHydraulicSound file="$data/vehicles/shared/hydraulicUp.wav" pitchOffset="0.75" volume="0.6" />
+    
+
+    <honkSound file="$data/vehicles/shared/horn.wav" volume="1" radius="70" innerRadius="10" />
+
+    <steering index="8|0" indoorRotation="540" outdoorRotation="50" />
+
+    <characterNode index="0>10|0" cameraMinDistance="1.5" filename="$dataS2/character/player/player.i3d" characterMesh="1" characterGloves="2" characterSkin="0" spineNode="0|0" leftArmIKChainId="leftArm" spineRotation="180 0 90" >
+        <ikChains>
+            <ikChain id="rightFoot" target="0>10|1" targetOffset="0 0.1 0" alignToTarget="true" isDirtyOnLoad="true" >
+                <node index="0|1" />
+                <node index="0|1|0"     minRx="0" maxRx="0" minRy="-30" maxRy="30" minRz="0"   maxRz="90" />
+                <node index="0|1|0|0"   minRx="0" maxRx="0" minRy="0"   maxRy="0"  minRz="-100" maxRz="-7" />
+                <node index="0|1|0|0|0" />
+            </ikChain>
+            <ikChain id="leftFoot" target="0>10|2" targetOffset="0 0.1 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|2"     />
+                <node index="0|2|0"     minRx="0" maxRx="0" minRy="-30" maxRy="30" minRz="0"   maxRz="90" />
+                <node index="0|2|0|0"   minRx="0" maxRx="0" minRy="0"   maxRy="0"  minRz="-100" maxRz="-7" />
+                <node index="0|2|0|0|0" />
+            </ikChain>
+            <ikChain id="rightArm" target="0>8|1" targetOffset="0.025 0.066 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|0|0|1" />
+                <node index="0|0|0|1|0" minRx="-20" maxRx="20" minRy="-20" maxRy="20" minRz="-80" maxRz="80" />
+                <node index="0|0|0|1|0|0" minRx="-10" maxRx="10" minRy="0" maxRy="0" minRz="7"   maxRz="130" />
+                <node index="0|0|0|1|0|0|0" />
+                <rotationNode index="0|0|0|1|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|1|0|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|1|0|0|0|1" rotation="-90 20 -40" />
+                <rotationNode index="0|0|0|1|0|0|0|1|0" rotation="0 0 -40" />
+            </ikChain>
+            <ikChain id="leftArm" target="0>8|0|0" targetOffset="-0.025 0.066 0" alignToTarget="true" isDirtyOnLoad="true">
+                <node index="0|0|0|2" />
+                <node index="0|0|0|2|0" minRx="-20" maxRx="20" minRy="-20" maxRy="20" minRz="-80" maxRz="80" />
+                <node index="0|0|0|2|0|0" minRx="-10" maxRx="10" minRy="0" maxRy="0" minRz="7"   maxRz="130" />
+                <node index="0|0|0|2|0|0|0" />
+                <rotationNode index="0|0|0|2|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|2|0|0|0|0|0" rotation="0 0 -60" />
+                <rotationNode index="0|0|0|2|0|0|0|1" rotation="-90 20 -40" />
+                <rotationNode index="0|0|0|2|0|0|0|1|0" rotation="0 0 -40" />
+            </ikChain>
+        </ikChains>
+    </characterNode>
+
+    <aiTrafficCollisionTrigger index="11" />
+
+    <fillVolumes>
+        <fillVolume index="0>25|0" defaultFillType="silage" allSidePlanes="false"/>
+    </fillVolumes>
+
+    <fillVolumeDischargeInfo index="0>35" width="0.3" length="0.3" />
+    <fillVolumeLoadInfo index="0>36" width="0.3" length="0.3" />
+
+    <fillTypes fillTypes="forage forage_mixing grass_windrow dryGrass_windrow silage" />
+    <capacity>12000</capacity>
+    <fillRootNode index="0>" />
+    <fillMassNode index="0>" />
+
+    <mixerWagonFillTypes>
+        <mixerWagonFillType minPercentage="25" maxPercentage="75" name="dryGrass">
+            <fillType fillType="grass_windrow" />
+            <fillType fillType="dryGrass_windrow" />
+        </mixerWagonFillType>
+        <mixerWagonFillType minPercentage="25" maxPercentage="75" name="silage">
+            <fillType fillType="silage" />
+        </mixerWagonFillType>
+        <mixerWagonFillType minPercentage="0" maxPercentage="40" name="straw">
+            <fillType fillType="wheat_windrow" />
+            <fillType fillType="barley_windrow" />
+        </mixerWagonFillType>
+    </mixerWagonFillTypes>
+
+    <mixerWagonBaleTrigger index="0>26" />
+
+    <shovel fillLitersPerSecond="500" ignoreVehicleDirectionOnLoad="true" >
+        <node index="0>17|11" />
+    </shovel>
+
+    <shovelFillEffect>
+        <effectNode node="0|0|0" linkNode="0>17|8" position="0 0 0" delay="0" filename="$data/vehicles/particleAnimations/kuhn/kuhnSPVConfort12.i3d" />
+        <effectNode node="0|0|1" linkNode="0>39"   position="0 0 0" delay="0" filename="$data/vehicles/particleAnimations/kuhn/kuhnSPVConfort12.i3d" />
+    </shovelFillEffect>
+
+    <mixerWagonRotatingParts>
+        <mixerWagonRotatingPart index="0>19"   type="mixerWagonMix"    rotSpeed="-200" rotAxis="2" turnOnFadeTime="1" turnOffFadeTime="1" />
+        <mixerWagonRotatingPart index="0>17|5" type="mixerWagonPickup" rotSpeed="1600" rotAxis="1" turnOnFadeTime="1" turnOffFadeTime="1" />
+    </mixerWagonRotatingParts>
+
+    <tipReferencePoints>
+        <tipReferencePoint index="0>28" width="1" />
+        <tipReferencePoint index="0>27" width="1" />
+    </tipReferencePoints>
+
+    <tipAnimations>
+        <tipAnimation speedScale="1" animationName="tipLeft" dischargeStartTime="1.9" dischargeEndTime="20" >
+            <tipEffect>
+                <effectNode node="0|0|2" linkNode="0>37" materialType="unloading" materialTypeId="3" position="0 0 0" defaultFillType="silage" filename="$data/vehicles/particleAnimations/kuhn/kuhnSPVConfort12.i3d" fadeTime="0.5"/>
+            </tipEffect>
+        </tipAnimation>
+        <tipAnimation speedScale="1" animationName="tipRight" dischargeStartTime="0.9" dischargeEndTime="20">
+            <tipEffect>
+                <effectNode node="0|0|3" linkNode="0>38" materialType="unloading" materialTypeId="3" position="0 0 0" defaultFillType="silage" filename="$data/vehicles/particleAnimations/kuhn/kuhnSPVConfort12.i3d" fadeTime="0.5"/>
+            </tipEffect>
+        </tipAnimation>
+    </tipAnimations>
+
+    <animations>
+        <animation name="tipLeft">
+            <part node="0>24|0" startTime="0" endTime="1" startTrans="-0.041 0.371 -0.014" endTrans="-0.041 1.026 -0.014"/>
+            <part node="0>21" startTime="0" endTime="2" startRot="0 0 0" endRot="0 0 -68"/>
+        </animation>
+        <animation name="tipRight">
+            <part node="0>24|0" startTime="0" endTime="1" startTrans="-0.041 0.371 -0.014" endTrans="-0.041 1.026 -0.014"/>
+        </animation>
+        <animation name="fillLevelDisplay">
+            <part node="0>34|1|1" startTime="0" endTime="1" startScale="1 1 0.01" endScale="1 1 1" />
+        </animation>
+        <animation name="fuelDisplay">
+            <part node="0>34|1|0" startTime="0" endTime="1" startScale="1 1 0.01" endScale="1 1 1" />
+        </animation>
+    </animations>
+
+    <mouseControls>
+        <mouseControl iconFilename="$dataS2/menu/mouseControlsHelp/grab_rotX.png" axis="AXIS_FRONTLOADER_TOOL" />
+        <mouseControl iconFilename="$dataS2/menu/mouseControlsHelp/frontloader_arm.png" axis="AXIS_FRONTLOADER_ARM" />
+    </mouseControls>
+
+    <movingTools>
+        <!-- door -->
+        <movingTool index="0>24|0">
+            <!-- door cylinder -->
+            <dependentPart index="0>23" />
+        </movingTool>
+        <!-- front cover -->
+        <movingTool index="17|1" rotSpeed="40" speedFactor="0.5" rotAcceleration="400" rotMax="0" rotMin="-70" axis="AXIS_FRONTLOADER_TOOL" invertAxis="false" invertMouseAxis="true"/>
+        <!-- arm -->
+        <movingTool index="17" rotSpeed="15" speedFactor="0.7" rotAcceleration="150" rotMax="3.5" rotMin="-60" axis="AXIS_FRONTLOADER_ARM" invertAxis="true" invertMouseAxis="true">
+            <!-- hydraulic -->
+            <dependentPart index="0>18" />
+        </movingTool>
+        <movingTool index="0>39" rotSpeed="7.5" speedFactor="0.7" rotAcceleration="150" rotMax="0" rotMin="-30" axis="AXIS_FRONTLOADER_ARM" invertAxis="true" invertMouseAxis="true" />
+        <!-- side put -->
+        <movingTool index="0>21">
+            <dependentPart index="0>22" />
+        </movingTool>
+    </movingTools>
+
+    <movingParts>
+        <!-- door cylinder -->
+        <movingPart index="0>23" referencePoint="0>24|0|0" referenceFrame="0>23">
+            <translatingPart index="0>23|0" />
+        </movingPart>
+        <!-- arm cylinder -->
+        <movingPart index="0>18" referencePoint="0>17|3" referenceFrame="0>17|3">
+            <translatingPart index="0>18|0" />
+        </movingPart>
+        <!-- side put cylinder -->
+        <movingPart index="0>22" referencePoint="0>21|0" referenceFrame="0>">
+            <translatingPart index="0>22|0" />
+        </movingPart>
+    </movingParts>
+
+    <driveGroundParticleSystems>
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="1" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="2" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="3" />
+        <driveGroundParticleSystem file="$data/vehicles/particleAnimations/shared/drivingParticleSystem.i3d" wheel="4" />
+    </driveGroundParticleSystems>
+
+    <washable dirtDuration="120" washDuration="1" workMultiplier="4" />
+
+    <components count="1">
+        <component1 centerOfMass="0 0.5 -0.35" solverIterationCount="10" />
+    </components>
+
+    <schemaOverlay file="$dataS2/menu/schemas/vehicleSchema.png" fileSelected="$dataS2/menu/schemas/vehicleSchemaSelected.png" fileTurnedOn="$dataS2/menu/schemas/vehicleSchemaTurnedOn.png" fileSelectedTurnedOn="$dataS2/menu/schemas/vehicleSchemaSelectedTurnedOn.png" width="0.5" height="0.5" attacherJointPosition="0.5 0"/>
+
+</vehicle>
